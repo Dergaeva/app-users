@@ -1,0 +1,51 @@
+@import "_variables";
+@import "../../app/user-page/user-page.component.scss";
+
+//Common styles
+h3 {
+  margin-top: 0;
+  margin-bottom: 27px;
+}
+.mt-30 {
+  margin-top: 30px;
+}
+
+.mb-30 {
+  margin-bottom: 30px;
+}
+
+.pt-7 {
+  padding-top: 7px;
+}
+
+input[type="file"] {
+  display: inline-block;
+}
+.user-name {
+  color: $title-color;
+}
+
+.badge {
+  background: transparent;
+
+  .btn-danger {
+    border-radius: 20px;
+    height: 20px;
+  }
+}
+
+//form
+.sign-in.form-horizontal {
+  max-width: 768px;
+
+  sup {
+    color: $brand-danger;
+  }
+
+  .date {
+    padding-top: 7px;
+  }
+  .alert {
+    margin-bottom: 0;
+  }
+}
