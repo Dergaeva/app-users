@@ -4,7 +4,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Development server
 
-Run `json-server --id _id --watch users.js` for a json server. (More details on https://github.com/typicode/json-server)
+Run `json-server --id _id --watch users.json` for a json server. (More details on https://github.com/typicode/json-server)
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
