@@ -1,0 +1,181 @@
+<div class="col-md-12 well">
+  <button type="button" class="close" aria-label="Close"
+          (click)="activeModal.dismiss('Cross click')">x
+  </button>
+  <ng-container>
+    <form [formGroup]="form" (ngSubmit)="form.valid && addUser()" class=" form-horizontal sign-in">
+      <div class="form-group">
+        <label class="col-md-4 control-label">Ваш имя<sup>*</sup></label>
+        <div class="col-md-8 inputGroupContainer">
+          <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+            <input type="text" class="form-control" placeholder="Фамилия и имя" formControlName="name" required>
+          </div>
+          <div *ngIf="f.name.invalid && f.name.touched">
+            <div class="alert alert-danger">{{getNameError()}}</div>
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-md-4 control-label">Компания</label>
+        <div class="col-md-8 inputGroupContainer">
+          <div class="input-group"><span class="input-group-addon"><i
+            class="glyphicon glyphicon-signal"></i></span><input
+            type="text" class="form-control" placeholder="Компания" formControlName="company">
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-md-4 control-label">Email<sup>*</sup></label>
+        <div class="col-md-8 inputGroupContainer">
+          <div class="input-group"><span class="input-group-addon"><i
+            class="glyphicon glyphicon-envelope"></i></span>
+            <input type="text" class="form-control" formControlName="email" placeholder="Email">
+          </div>
+          <div *ngIf="f.email.invalid && f.email.touched">
+            <div class="alert alert-danger">{{getEmailError()}}</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="col-md-4 control-label">Пароль<sup>*</sup></label>
+        <div class="col-md-8 inputGroupContainer">
+          <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-edit"></i></span>
+            <input type="password" class="form-control" formControlName="pass" placeholder="Пароль">
+          </div>
+          <div *ngIf="f.pass.invalid && f.pass.touched">
+            <div class="alert alert-danger">{{getPasswordError()}}</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="col-md-4 control-label">Ваш цвет глаз</label>
+        <div class="col-md-8 inputGroupContainer">
+          <div class="input-group">
+                  <span class="input-group-addon" style="max-width: 100%;"><i
+                    class="glyphicon glyphicon-list"></i></span>
+            <select class="form-control" formControlName="eyeColor">
+              <option value="brown">карие</option>
+              <option value="blue">голубые</option>
+              <option value="green">зеленые</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="col-md-4 control-label">Ваш возраст<sup>*</sup></label>
+        <div class="col-md-8 inputGroupContainer">
+          <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+            <input type="text" class="form-control" formControlName="age" placeholder="Возраст" required>
+          </div>
+          <div *ngIf="f.age.invalid && f.age.touched">
+            <div class="alert alert-danger">{{getAgeError()}}</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="col-md-4 control-label">Ваш телефон<sup>*</sup></label>
+        <div class="col-md-8 inputGroupContainer">
+          <div class="input-group"><span class="input-group-addon"><i
+            class="glyphicon glyphicon-earphone"></i></span>
+            <input type="text" class="form-control" formControlName="phone" placeholder="(ххх)хххххх">
+          </div>
+          <div *ngIf="f.phone.invalid && f.phone.touched">
+            <div class="alert alert-danger">{{getPhoneError()}}</div>
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-md-4 control-label">Ваш адрес</label>
+        <div class="col-md-8 inputGroupContainer">
+          <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
+            <input type="text" class="form-control" formControlName="address" placeholder="Адрес">
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="col-md-4 control-label">Баланс, $<sup>*</sup></label>
+        <div class="col-md-8 inputGroupContainer">
+          <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-usd"></i></span>
+            <input type="text" class="form-control" formControlName="balance" placeholder="Сумма на счету"
+                   required>
+          </div>
+          <div *ngIf="f.balance.invalid && f.balance.touched">
+            <div class="alert alert-danger">{{getBalanceError()}}</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="col-md-4 control-label">Ваш пол</label>
+        <div class="col-md-8 inputGroupContainer">
+          <div class="input-group">
+                  <span class="input-group-addon" style="max-width: 100%;"><i
+                    class="glyphicon glyphicon-list"></i></span>
+            <select class="form-control" formControlName="genders">
+              <option value="male">мужской</option>
+              <option value="female">женский</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="col-md-4 control-label">Дополнительная информация</label>
+        <div class="col-md-8 inputGroupContainer">
+          <div class="input-group"><span class="input-group-addon"><i
+            class="glyphicon glyphicon-align-center"></i></span>
+                  <textarea class="form-control" formControlName="about" rows="3" cols="46"
+                            placeholder="Комментарии"></textarea>
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-md-4 control-label">Теги</label>
+        <div class="col-md-8 inputGroupContainer">
+          <div class="input-group"><span class="input-group-addon"><i
+            class="glyphicon glyphicon-align-right"></i></span>
+                  <textarea class="form-control" formControlName="tags" rows="1" cols="46"
+                            placeholder="Теги"></textarea>
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-md-4 control-label">Добавить фото</label>
+        <div class="col-md-8 inputGroupContainer">
+          <input type="file" id="picture" class="form-control-file pt-7" (change)="onFileChange($event)"
+                 #fileInput>
+          <button type="button" class="btn btn-sm btn-secondary float-right pt-7" (click)="clearFile()">Удалить
+            фото
+          </button>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="col-md-4 control-label">Дата регистрации:</label>
+        <div class="col-md-8 inputGroupContainer">
+          <div #registered class="pt-7">{{dateNow | date: 'dd/MM/yyyy hh:mm'}}</div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="col-md-8 col-md-offset-4 inputGroupContainer">
+          <button
+            type="button"
+            class="btn btn-success mb-30"
+            [disabled]="form.invalid"
+            (click)="addUser()"
+          >
+            Сохранить
+          </button>
+          <br>
+          <p>Поля отмеченные <sup>*</sup> обязательны к заполнению</p>
+        </div>
+      </div>
+    </form>
+  </ng-container>
+</div>

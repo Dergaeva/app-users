@@ -1,56 +1,56 @@
 <div class="col-md-12">
-  <h3>Данные о пользователе <span class="user-name">{{name}}</span></h3>
+  <h3>Данные о пользователе <span class="title">{{user?.name}}</span></h3>
   <table class="table table-striped">
     <tbody>
     <tr>
       <th scope="row">1</th>
       <td>Имя</td>
-      <td>{{name}}</td>
+      <td>{{user?.name}}</td>
     </tr>
     <tr>
       <th scope="row">2</th>
       <td>Баланс, $</td>
-      <td>{{balance}}</td>
+      <td>{{user?.balance}}</td>
     </tr>
     <tr>
       <th scope="row">3</th>
       <td>Возраст</td>
-      <td>{{age}}</td>
+      <td>{{user?.age}}</td>
     </tr>
     <tr>
       <th scope="row">4</th>
       <td>Email</td>
-      <td>{{email}}</td>
+      <td>{{user?.email}}</td>
     </tr>
     <tr>
       <th scope="row">5</th>
       <td>Телефон</td>
-      <td>{{phone}}</td>
+      <td>{{user?.phone}}</td>
     </tr>
     <tr>
       <th scope="row">6</th>
       <td>Адрес</td>
-      <td>{{address}}</td>
+      <td>{{user?.address}}</td>
     </tr>
     <tr>
       <th scope="row">7</th>
       <td>Дополнительная информация</td>
-      <td>{{about}}</td>
+      <td>{{user?.about}}</td>
     </tr>
     <tr>
       <th scope="row">5</th>
       <td>Теги</td>
-      <td>{{tags}}</td>
+      <td>{{user?.tags}}</td>
     </tr>
     <tr>
       <th scope="row">6</th>
       <td>Дата регистрации</td>
-      <td>{{registered}}</td>
+      <td>{{user?.registered}}</td>
     </tr>
     </tbody>
   </table>
   <br>
-  <img src="{{picture}}" alt="Avatar" class="mb-30">
+  <img src="{{user?.picture }}" alt="Avatar" class="src-hidden mb-30">
   <hr>
   <div class="mb-30">
     <a
